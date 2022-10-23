@@ -200,10 +200,118 @@ chmod +x one.py
 
 ### Processing Text
 
+#### Using grep, cut, sort and unique in Linux
+
+```
+head -n 1 review.txt
+tail -n 1 review.txt
+```
+
+```
+grep -c bad review.txt
+grep bad review.txt
+wc -l review.txt
+```
+```
+grep -c NEGATIVE review.txt
+grep -c POSITIVE review.txt
+grep -c MIXED review.txt
+```
+
+```
+diff fruit*
+```
+```
+diff fruit1.txt fruit2.txt
+```
+```
+uniq fruit1.txt
+```
+```
+uniq -c fruit1.txt
+```
+```
+cat fruit1.txt
+```
+```
+sort fruit1.txt
+```
+```
+cat review.txt | rev | cut -d, -f1 | rev
+```
+```
+cat review.txt | rev | cut -d, -f1 | rev > status.text
+```
+
+#### Editing with Truncation, awk and sed in Linux
+
+```
+shuf -n 10 review.txt | wc -l
+shuf -n 10 review.txt | wc -l > 10lines.txt
+wc -l 10lines.txt
+```
+```
+man shuf
+```
+```
+echo "lower" | tr a-z A-Z
+echo "hello" | tr a-z A-Z
+```
+```
+shuf -n 1 review.txt | tr a-z A-Z
+```
+```
+echo "MIXED" | sed 's/MIXED/NEGATIVE/'
+```
+```
+shuf -n 200 review.txt | sed 's/MIXED/NEGATIVE/'
+shuf -n 200 review.txt | sed 's/MIXED/NEGATIVE/' | grep -c NEGATIVE
+shuf -n 200 review.txt | sed 's/MIXED/NEGATIVE/' | grep -c POSITIVE
+shuf -n 200 review.txt | sed 's/MIXED/NEGATIVE/' | grep -c MIXED
+```
+
+```
+shuf -n 200 review.txt | sed 's/MIXED/NEGATIVE/' | awk 'NF < 10'
+```
+```
+shuf -n 200 review.txt | sed 's/MIXED/NEGATIVE/' | awk 'NF > 300'
+```
+
+#### Using Regular Expressions in Linux
+```
+echo 415-444-5599 | grep '\(([0-9]\{3\})\|[0-9]\{3\}\)[-]\?[0-9]\{3\}[-]\?[0-9]\{4\}'
+echo 41-444-5599 | grep '\(([0-9]\{3\})\|[0-9]\{3\}\)[-]\?[0-9]\{3\}[-]\?[0-9]\{4\}'
+cat phone-number.txt | grep '\(([0-9]\{3\})\|[0-9]\{3\}\)[-]\?[0-9]\{3\}[-]\?[0-9]\{4\}'
+```
+
+```
+ls | grep -Eh 'phone|fruit'
+```
+```
+grep -EH 'Avanti|Samsung' review.txt | wc -l
+grep -EH 'Avanti' review.txt | wc -l
+grep -EH 'Samsung' review.txt | wc -l
+```
 
 
 
 
+#### Lab Task 3
+```
+wc -l oldmansea.txt
+wc -w oldmansea.txt
+grep -o -i sun oldmansea.txt | wc -c
+```
+```
+cat oldmansea.txt | tr " " "\n" | sort | uniq -c | sort -gr | head -10
+```
+
+#### Lab Task 4
+
+```
+find /usr/bin | wc -l
+find /usr/bin | grep python
+```
 
 
 

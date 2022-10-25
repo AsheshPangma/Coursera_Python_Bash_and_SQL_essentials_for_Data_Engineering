@@ -87,7 +87,7 @@ puts "Hello!"
 
 To install Jupyterlab, type `pip install jupyterlab` in the prompt. After installing Jupyterlab, you can run it by using the command `jupyter lab`. Then a prompt will open showing Jupyterlab. It provides several windows to work similar to that of an IDE. We can debug our code as well as add other extensions on Jupyterlab for better experience.
 The picture below shows the prompt for Jupyterlab.
-![](Web_Application_and_Command_line_tool/images/jupyterlab_prompt.png)
+![](images/jupyterlab_prompt.png)
 
 ## Week 2
 
